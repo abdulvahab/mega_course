@@ -22,6 +22,6 @@ if __name__=="__main__":
     while True:
         word = input("Enter your word or '0' to exit: ")
         if word == '0':
-            print("Than for using dictionary app, see you again\n")
+            print("Thanks for using dictionary app, see you again\n")
             exit()
         print(get_meaning(word))
