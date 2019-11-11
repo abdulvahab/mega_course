@@ -1,0 +1,7 @@
+{
+    "dbname":"dictionary",
+    "user" : "postgres",
+    "password" : "admin",
+    "host" : "localhost",
+    "sslmode" : "prefer"
+}
