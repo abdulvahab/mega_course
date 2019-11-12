@@ -29,9 +29,7 @@
     {% else %}
         <p><h5><em style="color:red">{{ word }}</em> means</h5></p>  
         {% for meaning in meanings %}
-            <ul style="background-color:white">
-                <li style="color:maroon">{{ meaning }}</li>
-            </ul>
+            <p style="background-color:white; color:maroon"><code>{{ meaning }}</code></p>
         {% endfor %}
     {% endif %}
 {% endblock %}

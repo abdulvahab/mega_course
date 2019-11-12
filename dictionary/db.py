@@ -8,8 +8,6 @@ with open("data.json") as file, open("db_config.json") as config_file:
     conn = connect(**credential)
     cur = conn.cursor()
 
-
-
 if __name__=="__main__":
     print(data['advantage'])
 
@@ -22,3 +20,9 @@ if __name__=="__main__":
 
     for meaning in meanings:
         print(meaning)
+    
+    #Insert query
+    for k,v in data.items():
+        query = "INSERT INTO dictionary(expression, meaning) VALUES (%s,%s)"
+        cur.execute(query,(k,v))
+        conn.commit()

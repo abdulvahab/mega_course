@@ -1,0 +1,7 @@
+{
+    "dbname":"dictionary",
+    "user" : "postgres",
+    "password" : "Fatema!786",
+    "host" : "dictdb-1.cyedc0qmyv7i.eu-west-2.rds.amazonaws.com",
+    "sslmode" : "prefer"
+}
