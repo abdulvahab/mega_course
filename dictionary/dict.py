@@ -5,6 +5,8 @@ import json
 from difflib import get_close_matches
 from flask import Flask, render_template, url_for, redirect, request
 from forms import WordForm, AlternateWordForm
+from rdbms import get_meanings
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "001786" 
 
@@ -26,7 +28,8 @@ def meaning(word):
     alt_form = AlternateWordForm()
     alt_words=None
     result= ["The word doesn't found, please check and re-enter"] 
-    if word not in data.keys():
+    if not get_meanings(word):
+    #if word not in data.keys():
         alt_words = get_close_matches(word,data.keys(),cutoff=0.8)
         if alt_words:
             for alt_word in alt_words:
@@ -35,7 +38,7 @@ def meaning(word):
                 word = alt_form.word.data
                 return redirect(url_for("meaning", word=word))
     else:
-        result = data[word] 
+        result = get_meanings(word) 
  
     return render_template("meaning.html", 
                             meanings=result, 

@@ -8,14 +8,17 @@ with open("data.json") as file, open("db_config.json") as config_file:
     conn = connect(**credential)
     cur = conn.cursor()
 
-print(data['advantage'])
 
-# Select query
-cur.execute("select * from dictionary where expression='advantage'")
-conn.commit()
 
-result = cur.fetchall()
-meanings = result[0][1].replace('{','').replace('}','').split(',')
+if __name__=="__main__":
+    print(data['advantage'])
 
-for meaning in meanings:
-    print(meaning)
+    # Select query
+    cur.execute("select * from dictionary where expression='advantage'")
+    conn.commit()
+
+    result = cur.fetchall()
+    meanings = result[0][1].replace('{','').replace('}','').split(',')
+
+    for meaning in meanings:
+        print(meaning)
